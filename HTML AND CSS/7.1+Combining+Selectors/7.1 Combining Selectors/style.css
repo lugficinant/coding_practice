@@ -1,0 +1,16 @@
+/* Write your code here: */
+.box > p {
+  color: firebrick;
+}
+
+.box li {
+  color: blue;
+}
+
+li.done {
+  color: seagreen;
+}
+
+body p.done {
+  font-size: 0.5rem;
+}

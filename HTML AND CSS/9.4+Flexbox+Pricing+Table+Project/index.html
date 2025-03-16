@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flexbox Pricing Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 问题1如何把整个container居中
+        先把整个container放大到整个屏幕, 然后吧align-center设置成center,这样所有的item就是自动居中了
+
+      如何把ul里面的li居中, 尤其是去掉bullet之后.
+        需要把padding和margin都归0 */
+
+      body {
+        font-family: "Sono", sans-serif;
+      }
+
+      /* generic good way to set your vid to be center of the page !!!!! */
+      .pricing-container {
+        /* margin-top: 10rem; */
+        display: flex;
+        gap: 2rem;
+
+        /* 先把整个container放大到整个屏幕, 然后吧align-center设置成center,这样container就是自动居中(整个屏幕纵向)了 */
+        align-items: center;
+        height: 100vh;
+        /* height: 100%; */
+        /* 再横向调整, 让container 里面的 item 居中*/
+        justify-content: center;
+      }
+
+      .pricing-plan {
+        max-width: 400px;
+        background-color: bisque;
+        flex: 1;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        /* width: 600px; */
+      }
+
+      .plan-title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+      .plan-price {
+        font-weight: 900;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .plan-features {
+        list-style-type: none;
+        /* 需要设置padding和margin为0, 才能完全居中, 这里选定的是所有的features */
+        /* Padding: Browsers usually add left padding to <ul> elements to indent the list items.
+          Margin: Browsers also add top and bottom margins to <ul> elements. */
+        padding: 0;
+        margin: 0;
+      }
+      .plan-features li {
+        margin-bottom: 20px;
+      }
+      .plan-button {
+        background-color: orangered;
+        border-radius: 5px;
+        color: white;
+        border: 0;
+        height: 2rem;
+      }
+
+      /* Hint: What can you do with a media query and flexbox? */
+      @media (max-width: 1250px) {
+        .pricing-container {
+          /* display: flex; */
+          flex-direction: column;
+
+          /* why???? 100vh doest work */
+          height: 100%;
+
+          /* 如果还是100vh的话, 我们的div实际在纵向上已经超出了浏览器窗口的范围, 所以需要改成100%, 也就是body */
+          /* height: 100vh; */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pricing-container">
+      <div class="pricing-plan">
+        <div class="plan-title">Basic</div>
+        <div class="plan-price">$11.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 10GB Storage</li>
+          <li>✅ 1 User</li>
+          <li>🚫 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+
+      <div class="pricing-plan">
+        <div class="plan-title">Standard</div>
+        <div class="plan-price">$19.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 50GB Storage</li>
+          <li>✅ 5 Users</li>
+          <li>✅ Phone &amp; Email Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+
+      <div class="pricing-plan">
+        <div class="plan-title">Premium</div>
+        <div class="plan-price">$49.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 100GB Storage</li>
+          <li>✅ 10 Users</li>
+          <li>✅ 24/7 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+    </div>
+  </body>
+</html>
